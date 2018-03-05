@@ -1,0 +1,84 @@
+@import "@mixins/prefix.scss";
+@import "@variables/box.scss";
+
+$charbox-count-max: 16;
+
+%charbox {
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    border: $box-border-width $box-border-style $box-border-color;
+    color: $box-content-color;
+    margin: 0px;
+    width: 80px;
+    height: 80x;
+    font-size: 40px;
+}
+
+.charbox {
+    @extend %charbox;
+    &-arrow {
+        @extend %charbox;
+        border: none;
+        color: transparent;
+    }
+    &.charbox-small {
+        width: 20px;
+        height: 20x;
+        font-size: 15px;
+    }
+}
+
+// All charbox in a row do not have its border-right,
+// except for the final box.
+// The selected charbox has its background and border blink.
+// Small box has small radius
+// The selected charbox-arrow has its color blink
+$selectors1: '';
+$selectors2: '';
+$selectors3: '';
+$selectors4: '';
+$selectors5: '';
+@for $i from 0 through ($charbox-count-max - 1) {
+    @if ($selectors1 != '') {
+        $selectors1: $selectors1 + ', ';
+        $selectors2: $selectors2 + ', ';
+        $selectors3: $selectors3 + ', ';
+        $selectors4: $selectors4 + ', ';
+        $selectors5: $selectors5 + ', ';
+    }
+    $selectors1: $selectors1 + '.charbox-row .charbox.charbox-index-' + $i;
+    $selectors2: $selectors2 + '.charbox-row.charbox-count-' + ($i + 1) + ' .charbox.charbox-index-' + $i;
+    $selectors3: $selectors3 + '.charbox-row.charbox-count-' + ($i + 1) + ' .charbox.charbox-small.charbox-index-' + $i;
+    $selectors4: $selectors4 + '.charbox-row.charbox-select-' + $i + ' .charbox.charbox-index-' + $i;
+    $selectors5: $selectors5 + '.charbox-row.charbox-select-' + $i + ' .charbox-arrow.charbox-index-' + $i;
+}
+.charbox-row .charbox.charbox-index-0 {
+    border-top-left-radius: $box-border-radius;
+    border-bottom-left-radius: $box-border-radius;
+}
+.charbox-row .charbox.charbox-small.charbox-index-0 {
+    border-top-left-radius: $box-border-radius-small;
+    border-bottom-left-radius: $box-border-radius-small;
+}
+#{$selectors1} {
+    border-right: none;
+}
+#{$selectors2} {
+    border-right: $box-border-width $box-border-style $box-border-color;
+    border-top-right-radius: $box-border-radius;
+    border-bottom-right-radius: $box-border-radius;
+}
+#{$selectors3} {
+    border-top-right-radius: $box-border-radius-small;
+    border-bottom-right-radius: $box-border-radius-small;
+}
+#{$selectors4} {
+    color: $box-content-color-selected;
+    @include animation('box-blink 2s infinite');
+}
+#{$selectors5} {
+    color: $box-border-color-hover;
+    @include animation('box-blink-content 2s infinite');
+}

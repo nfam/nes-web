@@ -1,0 +1,116 @@
+<svg width="1440" height="640" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <!-- border -->
+    <g>
+        <path fill="gray" d="
+            M310,20
+            a310,310 0 1,0 0,620
+            a310,310 0 0,0 200,-70
+            h420
+            a310,310 0 0,0 200,70
+            a310,310 0 1,0 0,-620
+            z
+        "/>
+        <path fill="lightgray" d="
+            M310,22
+            a308,308 0 1,0 0,616
+            a308,308 0 0,0 200,-70
+            h420
+            a308,308 0 0,0 200,70
+            a308,308 0 1,0 0,-616
+            z
+        "/>
+    </g>
+
+    <!-- arrows -->
+    <g>
+        <circle fill="gray" cx="310" cy="330" r="200" />
+        <circle fill="gainsboro" cx="310" cy="330" r="198" />
+        <path fill="black" d="
+            M180,290
+            v80h90v90
+            h80v-90h90
+            v-80h-90v-90
+            h-80v90
+            z
+            "/>
+        <path fill="gray" d="
+            M182,292
+            v76h90v90
+            h76v-90h90
+            v-76h-90v-90
+            h-76v90
+            z
+            "/>
+        <circle fill="dimgray" cx="310" cy="330" r="40" />
+        <circle fill="gray" cx="310" cy="330" r="38" />
+
+        <!-- top arrow -->
+        <g>
+            <path fill="dimgray" d="
+                m310,210
+                l-30,60
+                h60
+                z" />
+            <path fill="gray" d="
+                m310,212
+                l-28,56
+                h56
+                z" />
+        </g>
+
+        <!-- left arrow -->
+        <g>
+            <path fill="dimgray" d="
+                m190,330
+                l60,30
+                v-60
+                z" />
+            <path fill="gray" d="
+                m192,330
+                l56,28
+                v-56
+                z" />
+        </g>
+
+        <!-- right arrow -->
+        <g>
+            <path fill="dimgray" d="
+                m430,330
+                l-60,30
+                v-60
+                z" />
+            <path fill="gray" d="
+                m428,330
+                l-56,28
+                v-56
+                z" />
+        </g>
+
+        <!-- down arrow -->
+        <g>
+            <path fill="dimgray" d="
+                m310,450
+                l-30,-60
+                h60
+                z" />
+            <path fill="gray" d="
+                m310,448
+                l-28,-56
+                h56
+                z" />
+        </g>
+    </g>
+
+    <!-- button -->
+    <g>
+        <circle fill="gray" cx="1130" cy="330" r="280" /> 
+        <circle fill="darkgray" cx="1130" cy="330" r="278" />
+
+        <circle fill="darkblue" cx="1130" cy="210" r="50" /> 
+        <circle fill="darkgoldenrod" cx="1130" cy="420" r="50" /> 
+
+        <circle fill="darkgreen" cx="1025" cy="315" r="50" /> 
+        <circle fill="darkred" cx="1235" cy="315" r="50" /> 
+    </g>
+</svg>

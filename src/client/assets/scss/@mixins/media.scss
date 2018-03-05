@@ -1,0 +1,5 @@
+@mixin media-min-width($size) {
+    @media (min-width: map-get($size, min-width)) {
+        @content
+    }
+}

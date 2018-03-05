@@ -1,0 +1,18 @@
+{
+    "extends": [
+        "tslint",
+        "tslint-eslint-rules"
+    ],
+    "rules": {
+        "trailing-comma": [ false ],
+        "one-line": [
+            true,
+            "check-open-brace",
+            "check-whitespace"
+        ],
+        "brace-style": [
+            true,
+            "stroustrup"
+        ]
+    }
+}

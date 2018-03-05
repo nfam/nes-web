@@ -1,0 +1,11 @@
+@import "@variables/box.scss";
+
+body {
+    background-color: black; 
+    color: $box-content-color;
+    min-height: 100%;
+}
+
+html {
+    height: 100%;
+}

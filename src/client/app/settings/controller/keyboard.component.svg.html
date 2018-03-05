@@ -1,0 +1,126 @@
+<svg width="465" height="200" viewBox="0,0,465,200" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style>
+        g.keyboard .button rect { cursor: pointer; fill-opacity: 0; fill: lightgray; stroke:gray; stroke-width: 0.5; }
+        g.keyboard .button rect.selected { fill-opacity: 0.5; }
+        g.keyboard .button rect:hover { stroke:dimgray; stroke-width: 1; }
+
+        g.keyboard text { text-anchor: middle; vertical-align: middle; font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 30px; fill: #808080; }
+        g.keyboard text.small { font-size: 15px; }
+
+    </style>
+    <svg:g class="keyboard">
+        <svg:g>
+            <svg:text alignment-baseline="central" x="95"
+            *ngFor="let line of codeName('u').split('\n');  let first = first; let last = last"
+            [attr.y]="80 + (first === last ? 0 : (first ? - 9.5 : 9.5 ))"
+            [ngClass]="{ 'small': first !== last || line.length > 2 }">
+                {{ line }}
+            </svg:text>
+
+            <svg:text alignment-baseline="central" x="35"
+            *ngFor="let line of codeName('l').split('\n');  let first = first; let last = last"
+            [attr.y]="140 + (first === last ? 0 : (first ? - 9.5 : 9.5 ))"
+            [ngClass]="{ 'small': first !== last || line.length > 2 }">
+                {{ line }}
+            </svg:text>
+
+            <svg:text alignment-baseline="central" x="95"
+            *ngFor="let line of codeName('d').split('\n');  let first = first; let last = last"
+            [attr.y]="140 + (first === last ? 0 : (first ? - 9.5 : 9.5 ))"
+            [ngClass]="{ 'small': first !== last || line.length > 2 }">
+                {{ line }}
+            </svg:text>
+
+            <svg:text alignment-baseline="central" x="155"
+            *ngFor="let line of codeName('r').split('\n');  let first = first; let last = last"
+            [attr.y]="140 + (first === last ? 0 : (first ? - 9.5 : 9.5 ))"
+            [ngClass]="{ 'small': first !== last || line.length > 2 }">
+                {{ line }}
+            </svg:text>
+
+            <svg:text alignment-baseline="central" x="230"
+            *ngFor="let line of codeName('select').split('\n');  let first = first; let last = last"
+            [attr.y]="140 + (first === last ? 0 : (first ? - 9.5 : 9.5 ))"
+            [ngClass]="{ 'small': first !== last || line.length > 2 }">
+                {{ line }}
+            </svg:text>
+
+            <svg:text alignment-baseline="central" x="290"
+            *ngFor="let line of codeName('start').split('\n');  let first = first; let last = last"
+            [attr.y]="140 + (first === last ? 0 : (first ? - 9.5 : 9.5 ))"
+            [ngClass]="{ 'small': first !== last || line.length > 2 }">
+                {{ line }}
+            </svg:text>
+
+            <svg:text alignment-baseline="central" x="365"
+            *ngFor="let line of codeName('b').split('\n');  let first = first; let last = last"
+            [attr.y]="140 + (first === last ? 0 : (first ? - 9.5 : 9.5 ))"
+            [ngClass]="{ 'small': first !== last || line.length > 2 }">
+                {{ line }}
+            </svg:text>
+
+            <svg:text alignment-baseline="central" x="425"
+            *ngFor="let line of codeName('a').split('\n');  let first = first; let last = last"
+            [attr.y]="140 + (first === last ? 0 : (first ? - 9.5 : 9.5 ))"
+            [ngClass]="{ 'small': first !== last || line.length > 2 }">
+                {{ line }}
+            </svg:text>
+
+            <svg:text alignment-baseline="central" x="365"
+            *ngFor="let line of codeName('B').split('\n');  let first = first; let last = last"
+            [attr.y]="80 + (first === last ? 0 : (first ? - 9.5 : 9.5 ))"
+            [ngClass]="{ 'small': first !== last || line.length > 2 }">
+                {{ line }}
+            </svg:text>
+
+            <svg:text alignment-baseline="central" x="425"
+            *ngFor="let line of codeName('A').split('\n');  let first = first; let last = last"
+            [attr.y]="80 + (first === last ? 0 : (first ? - 9.5 : 9.5 ))"
+            [ngClass]="{ 'small': first !== last || line.length > 2 }">
+                {{ line }}
+            </svg:text>
+    
+        </svg:g>
+        <svg:g class="button">
+            <svg:rect x="70" y="55" width="50" height="50" rx="5" ry="5"
+            [ngClass]="{ 'selected': state.selectedKey==='u' }"
+            (click)="state.selectedKey='u'"/>
+
+            <svg:rect x="10" y="115" width="50" height="50" rx="5" ry="5"
+            [ngClass]="{ 'selected': state.selectedKey==='l' }"
+            (click)="state.selectedKey='l'"/>
+
+            <svg:rect x="70" y="115" width="50" height="50" rx="5" ry="5"
+            [ngClass]="{ 'selected': state.selectedKey==='d' }"
+            (click)="state.selectedKey='d'"/>
+
+            <svg:rect x="130" y="115" width="50" height="50" rx="5" ry="5"
+            [ngClass]="{ 'selected': state.selectedKey==='r' }"
+            (click)="state.selectedKey='r'"/>
+
+            <svg:rect x="205" y="115" width="50" height="50" rx="5" ry="5"
+            [ngClass]="{ 'selected': state.selectedKey==='select' }"
+            (click)="state.selectedKey='select'"/>
+
+            <svg:rect x="265" y="115" width="50" height="50" rx="5" ry="5"
+            [ngClass]="{ 'selected': state.selectedKey==='start' }"
+            (click)="state.selectedKey='start'"/>
+
+            <svg:rect x="340" y="115" width="50" height="50" rx="5" ry="5"
+            [ngClass]="{ 'selected': state.selectedKey==='b' }"
+            (click)="state.selectedKey='b'"/>
+
+            <svg:rect x="400" y="115" width="50" height="50" rx="5" ry="5"
+            [ngClass]="{ 'selected': state.selectedKey==='a' }"
+            (click)="state.selectedKey='a'"/>
+
+            <svg:rect x="340" y="55" width="50" height="50" rx="5" ry="5"
+            [ngClass]="{ 'selected': state.selectedKey==='B' }"
+            (click)="state.selectedKey='B'"/>
+
+            <svg:rect x="400" y="55" width="50" height="50" rx="5" ry="5"
+            [ngClass]="{ 'selected': state.selectedKey==='A' }"
+            (click)="state.selectedKey='A'"/>
+        </svg:g>
+    </svg:g>
+</svg>

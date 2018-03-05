@@ -1,0 +1,175 @@
+<game-title [game]="game"></game-title>
+<div class="container" *ngIf="status==RoomStatus.serverConnect">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <label class="label-status">{{ 'Connecting' | translate }}</label>
+            <br/>{{ 'to Server.' | translate }}
+        </div>
+        <div class="col-xs-12 text-center">
+            <loading></loading>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <a class="metro-button" [ngClass]="{ 'selected': selected==Option.cancel }" (click)="cancel()">{{ 'Cancel' | translate }}</a>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="status==RoomStatus.serverConnected">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <label class="label-status">{{ 'Connected' | translate }}</label>
+            <br/>{{ 'Server is finding or creating a game.' | translate }}
+        </div>
+        <div class="col-xs-12 text-center">
+            <loading></loading>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <a class="metro-button" [ngClass]="{ 'selected': selected==Option.cancel }" (click)="cancel()">{{ 'Cancel' | translate }}</a>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="status==RoomStatus.serverWaiting">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <label class="label-status">{{ 'Waiting' | translate }}</label>
+            <br/>{{ 'for another player to join your game.' | translate }}
+        </div>
+    </div>
+    <div class="row section">
+        <div class="col-xs-12 text-center" *ngIf="room && room.passcode">
+            {{ 'Passcode to join your private game' | translate }}
+        </div>
+        <div class="col-xs-12 text-center" *ngIf="room && room.passcode">
+            <label class="label-status">{{ room.passcode }}</label>
+        </div>
+        <div class="col-xs-12 text-center">
+            <loading></loading>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <a class="metro-button" [ngClass]="{ 'selected': selected==Option.cancel }" (click)="cancel()">{{ 'Cancel' | translate }}</a>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="status==RoomStatus.serverFailed">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <div class="col-xs-12 text-center">
+                <label class="label-status">{{ 'Failed' | translate }}</label>
+                <br/>{{ 'to connect to server.' | translate }}
+            </div>
+        </div>
+    </div>
+    <div class="row section">
+        <div class="col-xs-6 text-right">
+            <a class="metro-button" [ngClass]="{ 'selected': selected==Option.retry }" (click)="retry()">{{ 'Retry' | translate }}</a>
+        </div>
+        <div class="col-xs-6 text-left">
+            <a class="metro-button" [ngClass]="{ 'selected': selected==Option.cancel }" (click)="cancel()">{{ 'Abandon' | translate }}</a>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="status==RoomStatus.serverDisconnected">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <label class="label-status">{{ 'Disconnected' | translate }}</label>
+            <br/>{{ 'The connection to server has just dropped.' | translate }}
+        </div>
+    </div>
+    <div class="row section">
+        <div class="col-xs-6 text-right">
+            <a class="metro-button" [ngClass]="{ 'selected': selected==Option.retry }" (click)="retry()">{{ 'Retry' | translate }}</a>
+        </div>
+        <div class="col-xs-6 text-left">
+            <a class="metro-button" [ngClass]="{ 'selected': selected==Option.cancel }" (click)="cancel()">{{ 'Abandon' | translate }}</a>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="status==RoomStatus.peerConnect">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <label class="label-status">{{ 'Connecting' | translate }}</label>
+            <br/>{{ 'to player' | translate }}
+        </div>
+    </div>
+    <div class="row section">
+        <div class="col-xs-12 text-center">
+            <label class="label-status">{{ room.that }}</label>
+        </div>
+        <div class="col-xs-12 text-center">
+            <loading></loading>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <a class="metro-button" [ngClass]="{ 'selected': selected==Option.cancel }" (click)="cancel()">{{ 'Cancel' | translate }}</a>
+        </div>
+    </div>
+</div>
+</div>
+<div class="container" *ngIf="status==RoomStatus.peerWaiting">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <label class="label-status">{{ 'Waiting' | translate }}</label>
+        </div>
+    </div>
+    <div class="row section">
+        <div class="col-xs-12 text-center">
+            <label class="label-status">{{ room.that }}</label>
+            <br/>{{ 'is connecting to you.' | translate }}
+        </div>
+    </div>
+    <div class="col-xs-12 text-center">
+        <loading></loading>
+    </div>
+</div>
+</div>
+<div class="container" *ngIf="status==RoomStatus.peerDisconnected">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <label class="label-status">{{ 'Disconnected' | translate }}</label>
+            <br/>{{ 'The connection to the other player has just dropped.' | translate }}
+        </div>
+    </div>
+    <div class="row section">
+        <div class="col-xs-6 text-right">
+            <a class="metro-button" [ngClass]="{ 'selected': selected==Option.retry }" (click)="retry()">{{ 'Reconnect' | translate }}</a>
+        </div>
+        <div class="col-xs-6 text-left">
+            <a class="metro-button" [ngClass]="{ 'selected': selected==Option.cancel }" (click)="cancel()">{{ 'Abandon' | translate }}</a>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="status==RoomStatus.peerReconnect">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <label class="label-status">{{ 'Waiting' | translate }}</label>
+            <br/>{{ 'for the other player to reconnect.' | translate }}
+        </div>
+        <div class="col-xs-12 text-center">
+            <loading></loading>
+        </div>
+    </div>
+    <div class="row section">
+        <div class="col-xs-12 text-center">
+            <a class="metro-button" [ngClass]="{ 'selected': selected==Option.cancel }" (click)="cancel()">{{ 'Abandon' | translate }}</a>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="status==RoomStatus.abandoned">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <label class="label-status">{{ 'Abandoned' | translate }}</label>
+            <br/>{{ 'The other player has abandoned the game.' | translate }}
+        </div>
+    </div>
+    <div class="row section">
+        <div class="col-xs-12 text-center">
+            <a class="metro-button" [ngClass]="{ 'selected': selected==Option.cancel }" (click)="cancel()">{{ 'Ok' | translate }}</a>
+        </div>
+    </div>
+</div>

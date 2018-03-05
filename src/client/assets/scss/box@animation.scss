@@ -1,0 +1,40 @@
+@import "@mixins/prefix.scss";
+@import "@variables/box.scss";
+
+@include keyframes(box-blink) {
+    0%, 100% {
+        border-color: $box-border-color-selected;
+        background-color: $box-background-color-selected;
+    }
+    50% {
+        border-color: $box-border-color-hover;
+        background-color: $box-background-color-blink;
+    }
+}
+
+@include keyframes(box-blink-content) {
+    0%, 100% {
+        color: $box-content-color;
+    }
+    50% {
+        color: $box-border-color-hover;
+    }
+}
+
+@include keyframes(box-blink-background) {
+    0%, 100% {
+        background-color: $box-background-color-selected;
+    }
+    50% {
+        background-color: $box-background-color-blink;
+    }
+}
+
+@include keyframes(box-blink-border) {
+    0%, 100% {
+        border-color: $box-border-color;
+    }
+    50% {
+        border-color: $box-border-color-hover;
+    }
+}

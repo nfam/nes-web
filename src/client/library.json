@@ -1,0 +1,24 @@
+{
+  "base": "https://unpkg.com/",
+  "link": [
+    "zone.js@0.8.18/dist/zone.min.js",
+    "reflect-metadata@0.1.10/Reflect.js",
+    "systemjs@0.19.47/dist/system.js",
+    "rxjs-system-bundle@5.5.2/Rx.system.min.js",
+    "simple-peer@8.1.1/simplepeer.min.js",
+    "bootstrap@3.3.6/dist/css/bootstrap.min.css"
+  ],
+  "system": [
+    "@angular/core@5.0.0/bundles/core.umd.min.js",
+    "@angular/common@5.0.0/bundles/common.umd.min.js",
+    "@angular/compiler@5.0.0/bundles/compiler.umd.min.js",
+    "@angular/forms@5.0.0/bundles/forms.umd.min.js",
+    "@angular/http@5.0.0/bundles/http.umd.min.js",
+    "@angular/platform-browser@5.0.0/bundles/platform-browser.umd.min.js",
+    "@angular/platform-browser-dynamic@5.0.0/bundles/platform-browser-dynamic.umd.min.js",
+    "@angular/router@5.0.0/bundles/router.umd.min.js",
+    "pako@1.0.5/dist/pako.min.js",
+    "tsnes@0.0.2/dist/nes.min.js",
+    "xson.js@0.1.0/dist/xson.min.js"
+  ]
+}

@@ -1,0 +1,247 @@
+{
+    "pass": "aG9ha2hhcC42eVotWVRmLUVzRS00OEg=",
+    "headers": {
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "accept-language": "en-US,en;q=0.5",
+        "accept-encoding" : "gzip,deflate",
+        "connection": "keep-alive",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:52.0) Gecko/20100101 Firefox/52.0"
+    },
+    "pages": {
+        "landing": {
+            "url": "http://truyencv.com/",
+            "method": "GET",
+            "log": "name"
+        },
+        "login": {
+            "url": "http://truyencv.com/index.php",
+            "method": "POST",
+            "headers": {
+                "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                "content-length": 0,
+                "origin": "http://truyencv.com",
+                "referer": "http://truyencv.com/"
+            },
+            "log": "name"
+        },
+        "book": {
+            "url": "http://truyencv.com/:bookIdent/",
+            "method": "GET",
+            "expression": {
+                "dictionary": {
+                    "id": {
+                        "within": {
+                            "prefix": ["registRecentReadingStory("],
+                            "suffix": ","
+                        }
+                    },
+                    "ident": {
+                        "within": {
+                            "prefix": ["<div class=\"truyencv-detail-info-block", "<h1 class=\"title", "<a", "href=", "http://truyencv.com/"],
+                            "suffix": "/"
+                        }
+                    },
+                    "title": {
+                        "within": {
+                            "prefix": ["<div class=\"truyencv-detail-info-block", "<h1 class=\"title", "<a", ">"],
+                            "suffix": "<"
+                        }
+                    },
+                    "authorIdent": {
+                        "within": {
+                            "prefix": ["<div class=\"truyencv-detail-info-block", "<div class=\"list", "Tác giả:", "<a", "href", "/tac-gia/"],
+                            "suffix": "/"
+                        }
+                    },
+                    "authorName": {
+                        "within": {
+                            "prefix": ["<div class=\"truyencv-detail-info-block", "<div class=\"list", "Tác giả:", "<div", "<a", ">"],
+                            "suffix": "<"
+                        }
+                    },
+                    "status": {
+                        "within": {
+                            "prefix": ["<div class=\"truyencv-detail-info-block", "<div class=\"item-label", ">", "Tình trạng:", "<div class=\"item-value", ">"],
+                            "suffix": "<"
+                        },
+                        "dictionary": {
+                            "ongoing": {
+                                "required": "status",
+                                "contains": "Đang ra"
+                            },
+                            "completed": {
+                                "required": "status",
+                                "contains": "Hoàn thành"
+                            }
+                        }
+                    },
+                    "chapters": {
+                        "within": {
+                            "prefix": ["<div class=\"truyencv-detail-tab", "<div class=\"tab-content", "<div class=\"list-overview", "Mới nhất"],
+                            "suffix": "<div class=\"vote"
+                        },
+                        "element": {
+                            "within": {
+                                "prefix": ["<a", "href", "//", "/", "/chuong-"],
+                                "suffix": "/"
+                            }
+                        }
+                    }
+                }
+            },
+            "log": "path"
+        },
+        "toc": {
+            "url": "http://truyencv.com/index.php",
+            "method": "POST",
+            "headers": {
+                "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                "content-length": 0,
+                "origin": "http://truyencv.com",
+                "referer": "http://truyencv.com/"
+            },
+            "cookie": {
+                "_ga": "GA1.2.609344870.1511365331",
+                "_gid": "GA1.2.652673078.1511365331",
+                "_gat": 1
+            },
+            "expression": {
+                "within": {
+                    "prefix": "<div class=\"item\">"
+                },
+                "array": {
+                    "separator": "<div class=\"item\">",
+                    "dictionary": {
+                        "index": {
+                            "required": false,
+                            "within": {
+                                "prefix": ["<a", "href", "//", "/", "/chuong-"],
+                                "suffix": "/"
+                            }
+                        },
+                        "bullet": {
+                            "within": {
+                                "prefix": ["<a", ">", " "],
+                                "suffix": [":", ".", " "],
+                                "trimming": true
+                            }
+                        },
+                        "title": {
+                            "within": {
+                                "prefix": ["<a", ">", " ", " "],
+                                "suffix": "<",
+                                "trimming": true
+                            }
+                        },
+                        "time": {
+                            "within": {
+                                "prefix": ["<a", "title=\""],
+                                "suffix": "\"",
+                                "trimming": true
+                            },
+                            "element": {
+                                "within": {
+                                    "reversed": true,
+                                    "suffix": "lúc",
+                                    "trimming": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "log": "none"
+        },
+        "chapter": {
+            "url": "http://truyencv.com/:bookIdent/chuong-:chapterNumber/",
+            "method": "GET",
+            "cookie": {
+                "_ga": "GA1.2.609344870.1511365331",
+                "_gid": "GA1.2.652673078.1511365331",
+                "_gat": 1
+            },
+            "expression": {
+                "dictionary": {
+                    "bullet": {
+                        "required": false,
+                        "within": {
+                            "prefix": ["<ol class=\"breadcrumb\"", "<a", "<a", "<a", "<li", "<span", ">"],
+                            "suffix": "</span>",
+                            "trimming": true
+                        },
+                        "element": {
+                            "within": {
+                                "prefix": " ",
+                                "suffix": [":", " "],
+                                "trimming": true
+                            }
+                        }
+                    },
+                    "title": {
+                        "required": false,
+                        "within": {
+                            "prefix": ["<ol class=\"breadcrumb\"", "<a", "<a", "<a", "<li", "<span", ">"],
+                            "suffix": "</span>",
+                            "trimming": true
+                        },
+                        "element": {
+                            "within": {
+                                "prefix": [" ", " "],
+                                "trimming": true
+                            }
+                        }
+                    },
+                    "text": {
+                        "within": {
+                            "prefix": ["<div class=\"truyencv-read-content", "<div class=\"content", ">"],
+                            "suffix": ["&nbsp;", "<div"]
+                        },
+                        "process": {
+                            "name": "text",
+                            "args": "div"
+                        }
+                    },
+                    "prevNumber": {
+                        "required": false,
+                        "within": {
+                            "prefix": ["<div class=\"truyencv-read-navigation"],
+                            "suffix": "Chương trước"
+                        },
+                        "element": {
+                            "within": {
+                                "prefix": ["<a", "href=\""],
+                                "suffix": "/\""
+                            },
+                            "element": {
+                                "within": {
+                                    "reversed": true,
+                                    "suffix": "-"
+                                }
+                            }
+                        }
+                    },
+                    "nextNumber": {
+                        "required": false,
+                        "within": {
+                            "prefix": ["<div class=\"truyencv-read-navigation", "icon-config"],
+                            "suffix": "Chương sau"
+                        },
+                        "element": {
+                            "within": {
+                                "prefix": ["<a", "href=\""],
+                                "suffix": "/\""
+                            },
+                            "element": {
+                                "within": {
+                                    "reversed": true,
+                                    "suffix": "-"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "log": "path"
+        }
+    }
+}

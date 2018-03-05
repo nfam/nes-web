@@ -1,0 +1,33 @@
+
+@import "@mixins/media.scss";
+@import "@variables/size.scss";
+@import "@variables/box.scss";
+
+@mixin text-align($name, $value) {
+    .text-#{$name}-#{$value} {
+        text-align: #{$value};
+    }
+}
+
+@mixin text-align-name($name) {
+    @include text-align($name, left);
+    @include text-align($name, right);
+    @include text-align($name, center);
+    @include text-align($name, justify);
+}
+
+@mixin text-align-size($size) {
+    @include media-min-width($size) {
+        @include text-align-name(map-get($size, name))
+    }
+}
+
+@include text-align-name(xs);
+@include text-align-size($sm);
+@include text-align-size($md);
+@include text-align-size($lg);
+
+.text-info {
+    font-size: 18px;
+    color: $box-content-color;
+}

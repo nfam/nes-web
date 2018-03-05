@@ -1,0 +1,49 @@
+$prefix-list: "-webkit-", "-moz-", "-ms-", "-o-", "";
+
+@mixin -property($name, $value, $prefix: "all") {
+    @if ($prefix == "all") {
+        @each $prefix in $prefix-list {
+            #{$prefix}#{$name}: #{$value};
+        }
+    }
+    @else {
+        #{$prefix}#{$name}: #{$value};
+    }
+}
+
+@mixin keyframes($name, $prefix: "all") {
+    @if ($prefix == "all") {
+        @-webkit-keyframes #{$name} {
+            @content; 
+        }
+        @-moz-keyframes #{$name} {
+            @content;
+        }
+        @keyframes #{$name} {
+            @content;
+        } 
+    }
+    @else if ($prefix == "-webkit-") {
+        @-webkit-keyframes #{$name} {
+            @content; 
+        }
+    }
+    @else if ($prefix == "-moz-") {
+        @-moz-keyframes #{$name} {
+            @content; 
+        }
+    }
+    @else if ($prefix == "") {
+        @keyframes #{$name} {
+            @content; 
+        }
+    }
+}
+
+@mixin animation($value, $prefix: "all") {
+    @include -property("animation", $value, $prefix);
+}
+
+@mixin animation-delay($value, $prefix: "all") {
+    @include -property("animation-delay", $value, $prefix);
+}

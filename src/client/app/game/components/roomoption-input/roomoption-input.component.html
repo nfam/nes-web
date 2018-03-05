@@ -1,0 +1,53 @@
+<game-title [game]="game"></game-title>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-xs-12 text-sm-right text-xs-center">
+            <a (click)="click(RoomOption.username)" [ngClass]="{ 'selected': selected==RoomOption.username }">
+                <div class="metro text-center">
+                    <div class="icon">
+                        <i class="icon icon-account"></i>
+                    </div>
+                    <div class="description">
+                        {{username}}
+                    </div>
+                </div>
+            </a>
+        </div>                
+        <div class="col-sm-6 col-xs-12 text-sm-left text-xs-center">
+            <a (click)="click(RoomOption.anyone)" [ngClass]="{ 'selected': selected==RoomOption.anyone }">
+                <div class="metro text-center">
+                    <div class="icon">
+                        <i class="icon icon-hands"></i>
+                    </div>
+                    <div class="description">
+                        {{ 'Play with anyone' | translate }}
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-xs-12 text-sm-right text-xs-center">
+            <a (click)="click(RoomOption.create)" [ngClass]="{ 'selected': selected==RoomOption.create }">
+                <div class="metro text-center">
+                    <div class="icon">
+                        <i class="icon icon-create"></i>
+                    </div>
+                    <div class="description">
+                        {{ 'Create a private game' | translate }}
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-xs-12 text-sm-left text-xs-center">
+            <a (click)="click(RoomOption.join)" [ngClass]="{ 'selected': selected==RoomOption.join }">
+                <div class="metro text-center">
+                    <div class="icon">
+                        <i class="icon icon-handshake"></i>
+                    </div>
+                    <div class="description">
+                        {{ 'Join a private game' | translate }}
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

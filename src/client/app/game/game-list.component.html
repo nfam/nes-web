@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row" *ngIf="!games">
+        <loading></loading>
+    </div>
+    <div class="row" *ngIf="games" style="padding-top: 50px">
+        <div *ngIf="games.length == 0" class="text-center text-muted">{{ 'No games available' | translate }}.</div>
+        <div id="cover-{{index}}" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 text-center" *ngFor="let game of games; let index = index">
+            <game-cover [game]="game" [number]="index + 1" [selected]="selectedIndex == index"></game-cover>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <overlay-button position="top-left" icon="gear" routerLink="/settings"></overlay-button>
+    </div>
+</div>

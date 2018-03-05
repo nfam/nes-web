@@ -1,0 +1,43 @@
+pipeline:
+  prepare-install:
+    image: alpine
+    commands:
+      - if [ "$CI_SYSTEM_HOST" == "drone.server.home" ]; then
+          echo "registry=http://npm.server.home" > /drone-env/.npmrc;
+        else
+          echo "" > /drone-env/.npmrc;
+        fi
+    volumes:
+      - /tmp/drone-env/${DRONE_REPO_OWNER}-${DRONE_REPO_NAME}-${DRONE_COMMIT_SHA}-${DRONE_BUILD_NUMBER}-${DRONE_JOB_NUMBER}:/drone-env
+
+  install:
+    image: node:${node}
+    commands:
+      - npm install
+    volumes:
+      - /tmp/drone-env/${DRONE_REPO_OWNER}-${DRONE_REPO_NAME}-${DRONE_COMMIT_SHA}-${DRONE_BUILD_NUMBER}-${DRONE_JOB_NUMBER}/.npmrc:/root/.npmrc
+
+  clean-install:
+    image: alpine
+    commands:
+      - rm -r /tmp/drone-env/${DRONE_REPO_OWNER}-${DRONE_REPO_NAME}-${DRONE_COMMIT_SHA}-${DRONE_BUILD_NUMBER}-${DRONE_JOB_NUMBER}
+    volumes:
+      - /tmp/drone-env:/tmp/drone-env
+
+  lint:
+    image: node:${node}
+    commands:
+      - npm run tslint
+
+  build:
+    image: node:${node}
+    commands:
+      - npm run build
+
+matrix:
+  node:
+    - alpine
+    - 9-alpine
+    - 8-alpine
+    - 7-alpine
+    - 6-alpine

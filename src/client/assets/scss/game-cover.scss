@@ -1,0 +1,60 @@
+@import "@mixins/prefix.scss";
+@import "@variables/box.scss";
+
+.game-cover {
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid transparent;
+    border-radius: $box-border-radius;
+    color: $box-content-color;
+    position: relative;
+    cursor: pointer;
+
+    width: 260px;
+    height: 280px;
+    padding-top: 1px; 
+    margin-bottom: 20px;
+
+    .image {
+        box-sizing: content-box;
+        display: inline-block;
+        border: $box-border-width $box-border-style $box-border-color;
+        border-radius: $box-border-radius-small;
+        width: 256px;
+        height: 240px;
+        position: relative;
+
+        img {
+            display: inline-block;
+            border-radius: $box-border-radius-small;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    }
+
+    .description {
+        padding-top: 5px;
+        font-size: 18px;
+        color: inherit;
+    }
+
+    &:hover {
+        .image {
+            border-color: $box-border-color-hover;
+        }
+    }
+    &:active {
+        .image {
+            border-color: $box-border-color-active;
+        }
+    }
+
+    .selected & {
+        color: $box-content-color-selected;
+        @include animation('box-blink-background 2s infinite');
+        .image {
+            border-color: transparent;
+        }
+    }
+}

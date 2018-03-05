@@ -1,0 +1,5 @@
+<svg width="100" height="100"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g fill="dimgray">
+        <use xlink:href="symbol/hands.svg#hands" x="10" y="10" width="80" height="80" />
+    </g>
+</svg>

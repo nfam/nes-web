@@ -1,0 +1,59 @@
+<game-title [game]="game"></game-title>
+<div class="container">
+    <div class="row text-info">
+        <div class="col-xs-12 text-center" *ngIf="!passcodeInvalid">
+            {{ 'Enter Passcode to join the private game.' | translate }}
+        </div>
+        <div class="col-xs-12 text-center text-danger" *ngIf="passcodeInvalid">
+            {{ 'Could not find any game with the provided passcode.' | translate }}
+            <br/>
+            {{ 'Please enter the correct one.' | translate }}
+            <br/>
+        </div>
+    </div>
+    <br/>
+    <div class="container">
+        <div class="row">
+            <div class="
+                col-xs-12 text-center
+                charbox-row
+                charbox-count-{{digits.length}}
+                charbox-select-{{selected}}"
+            >
+                <a *ngFor="let digit of digits; let index = index" (click)="add(-1)">
+                    <div class="charbox-arrow charbox-index-{{index}} text-center">
+                        ⇧
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="
+                col-xs-12 text-center
+                charbox-row
+                charbox-count-{{digits.length}}
+                charbox-select-{{selected}}"
+            >
+                <a *ngFor="let digit of digits; let index = index" (click)="selectDigit(index)">
+                    <div class="charbox charbox-index-{{index}} text-center">
+                            {{digit}}
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="
+                col-xs-12 text-center
+                charbox-row
+                charbox-count-{{digits.length}}
+                charbox-select-{{selected}}"
+            >
+                <a *ngFor="let digit of digits; let index = index" (click)="add(1)">
+                    <div class="charbox-arrow charbox-index-{{index}} text-center">
+                         ⇩
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

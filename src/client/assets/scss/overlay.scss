@@ -1,0 +1,99 @@
+@import "@variables/box.scss";
+
+.overlay-top-left,
+.overlay-left-top {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+}
+
+.overlay-top-right,
+.overlay-right-top {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+}
+
+.overlay-bottom-left,
+.overlay-left-bottom {
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+}
+
+.overlay-bottom-right,
+.overlay-right-bottom {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+}
+
+%overlay-button {
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+}
+.overlay-button {
+    @extend %overlay-button;
+    .btn {
+        @extend %overlay-button;
+        background-color: transparent;
+        border-color: $box-border-color;
+        color: $box-content-color;
+        padding: 3px;
+        i.icon {
+            width: 45px;
+            height: 45px;
+        }
+        &:hover {
+            background-color: #202020;
+        }
+    }
+}
+
+.overlay-player {
+    &.overlay-left-top,
+    &.overlay-left-bottom,
+    &.overlay-top-left,
+    &.overlay-bottom-left {
+        text-align: left;
+    }
+    &.overlay-right-top,
+    &.overlay-right-bottom,
+    &.overlay-top-right,
+    &.overlay-bottom-right {
+        text-align: right;
+    }
+
+    box-sizing: border-box;
+    height: 23px;
+    margin: 0px;
+    padding: 0px;
+
+    .overlay-player-content {
+        display: inline-block;
+        box-sizing: border-box;
+        vertical-align: middle;
+        font-size: 12px;
+
+        color: black;
+        background-color: #202020;
+        border: 1px solid #202020;
+        border-radius: 3px;
+
+        height: 23px;
+        margin: 0px;
+        padding: 2px;
+        padding-right: 4px; 
+
+        span {
+            display: inline-block;
+            width: 20px;
+            font-family: serif;
+            text-align: center;
+            color: black;
+            background-color: #303030;
+            border-radius: 3px;
+        }
+    }
+}

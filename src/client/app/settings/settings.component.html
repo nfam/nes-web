@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row game-title text-center">
+        {{ 'Settings' | translate }}
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-xs-12 text-sm-right text-xs-center">
+            <a routerLink="/settings/controller" [ngClass]="{ 'selected': option==Option.controller }">
+                <div class="metro text-center">
+                    <div class="icon">
+                        <i class="icon icon-controller"></i>
+                    </div>
+                    <div class="description">
+                        {{ 'Joystick Simulation' | translate }}
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-xs-12 text-sm-left text-xs-center">
+            <a routerLink="/settings/language" [ngClass]="{ 'selected': option==Option.language }">
+                <div class="metro text-center">
+                    <div class="icon">
+                        <i class="icon icon-language"></i>
+                    </div>
+                    <div class="description">
+                        {{ 'Language' | translate }}
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <overlay-button position="top-left" icon="back" routerLink="/"></overlay-button>
+    </div>
+</div>

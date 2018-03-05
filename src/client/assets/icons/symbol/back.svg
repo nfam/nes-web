@@ -1,0 +1,6 @@
+<svg width="100" height="100"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <symbol id="back" viewBox="0 0 100 100">
+        <polygon points="59.5,30.9 56.6,28.1 35,50.3 57.1,71.9 59.9,69 40.6,50.2"/>
+    </symbol>
+    <use xlink:href="#back" />
+</svg>

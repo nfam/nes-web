@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row text-center game-title">
+        {{ 'Nickname' | translate }}
+    </div>
+    <div class="col-xs-12 text-center text-info">
+        {{ 'Your nickname is required in multiplayer online game.' | translate }}
+    </div>
+    <div class="row">
+        <div class="
+            col-xs-12 text-center
+            charbox-row
+            charbox-count-{{viewChars.length}}
+            charbox-select-{{index - offset}}"
+        >
+            <a *ngFor="let char of viewChars; let index = index" (click)="update(-1)">
+                <div class="charbox-arrow charbox-index-{{index}} text-center">
+                    ⇧
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="
+            col-xs-12 text-center
+            charbox-row
+            charbox-count-{{viewChars.length}}
+            charbox-select-{{index - offset}}"
+        >
+            <a *ngFor="let char of viewChars; let index = index" (click)="selectIndex(offset + i)">
+                <div class="charbox charbox-index-{{index}} text-center">
+                    {{char == ' ' ? '&nbsp;' : char }}
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="
+            col-xs-12 text-center
+            charbox-row
+            charbox-count-{{viewChars.length}}
+            charbox-select-{{index - offset}}"
+        >
+            <a *ngFor="let char of viewChars; let index = index" (click)="update(1)">
+                <div class="charbox-arrow charbox-index-{{index}} text-center">
+                        ⇩
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px">
+        <div class="
+            col-xs-12 text-center
+            charbox-row
+            charbox-count-{{fullChars.length}}
+            charbox-select-{{index}}"
+        >
+            <a *ngFor="let char of fullChars; let index = index" (click)="selectIndex(i)">
+                <div class="charbox charbox-small charbox-index-{{index}} text-center">
+                    {{char == ' ' ? '&nbsp;' : char }}
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

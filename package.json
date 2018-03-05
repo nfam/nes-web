@@ -1,0 +1,106 @@
+{
+  "name": "nes-web",
+  "version": "0.1.0",
+  "description": "Multiplayer Online Classic NES Games on Web Browser",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nfam/nes-web.git"
+  },
+  "main": "dist/server/index.js",
+  "dependencies": {
+    "sinjection": "^0.1.1",
+    "xson.js": "^0.1.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-ws": "^3.0.0",
+    "moment": "^2.19.1",
+    "moment-timezone": "^0.5.14",
+    "nconf": "^0.8.5",
+    "pako": "^1.0.6",
+    "uuid": "^3.1.0",
+    "winston": "^2.4.0",
+    "ws": "^3.3.2"
+  },
+  "devDependencies": {
+    "@angular/common": "^5.0.0",
+    "@angular/compiler": "^5.0.0",
+    "@angular/core": "^5.0.0",
+    "@angular/forms": "^5.0.0",
+    "@angular/http": "^5.0.0",
+    "@angular/platform-browser": "^5.0.0",
+    "@angular/platform-browser-dynamic": "^5.0.0",
+    "@angular/router": "^5.0.0",
+    "@types/body-parser": "^1.16.5",
+    "@types/chai": "^4.0.4",
+    "@types/chai-as-promised": "^7.1.0",
+    "@types/express": "^4.0.37",
+    "@types/gamepad": "0.0.28",
+    "@types/mocha": "^2.2.43",
+    "@types/moment-timezone": "^0.5.1",
+    "@types/mysql": "0.0.34",
+    "@types/nconf": "0.0.34",
+    "@types/node": "^8.0.46",
+    "@types/pako": "^1.0.0",
+    "@types/simple-peer": "^6.1.4",
+    "@types/uuid": "^3.4.3",
+    "@types/winston": "^2.3.6",
+    "@types/ws": "^3.2.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-changed": "^3.1.1",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-download-stream": "0.0.13",
+    "gulp-file": "^0.3.0",
+    "gulp-if": "^2.0.2",
+    "gulp-inline-ng2-template": "^4.0.0",
+    "gulp-intercept": "^0.1.0",
+    "gulp-manifest": "^0.1.1",
+    "gulp-real-favicon": "^0.2.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-svgmin": "^1.2.4",
+    "gulp-typescript": "^3.2.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-wrapper": "^1.0.0",
+    "html-minifier": "^3.5.6",
+    "rxjs": "^5.5.2 ",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.9.1",
+    "tslint-eslint-rules": "^5.1.0",
+    "tsnes": "0.0.2",
+    "typescript": "^2.5.3",
+    "zone.js": "^0.8.18"
+  },
+  "scripts": {
+    "tslint": "npm run tslint-server && npm run tslint-client",
+    "tslint-server": "node_modules/.bin/tslint -c tslint.json --project src/server",
+    "tslint-client": "node_modules/.bin/tslint -c tslint.json --project src/client",
+    "build": "node_modules/.bin/gulp",
+    "serve": "node dist/server"
+  },
+  "nyc": {
+    "include": [
+      "src/server/**/*.ts"
+    ],
+    "exclude": [
+      "src/client/*",
+      "dist/*",
+      "test/*"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "html"
+    ],
+    "all": true
+  }
+}

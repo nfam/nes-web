@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "types": [ "node" ],
+        "noImplicitAny": true,
+        "suppressImplicitAnyIndexErrors": true
+    }
+}

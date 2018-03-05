@@ -1,0 +1,159 @@
+<svg width="465" height="200" viewBox="0,0,465,200" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style>
+        g.joystick .button circle { cursor: pointer; stroke: none; }
+        g.joystick .button circle.selected { stroke: blue; }
+        g.joystick text { text-anchor: middle; vertical-align: middle; font-family: Verdana, Helvetica, Arial, sans-serif; }
+    </style>
+    <svg:defs>
+        <svg:g id="arrow">
+            <svg:path d="M0,-9l8,6h-2v12h-12v-12h-2z" fill="none" stroke="black" stroke-width="1"/>
+        </svg:g>
+        <svg:circle id="select" cx="0" cy="0" r="30" fill="none" stroke="blue" stroke-width="3"/>
+    </svg:defs>
+    <svg:g class="joystick">
+        <svg:g>
+            <svg:g>
+                <svg:rect x="0" y="0" width="465" height="200" rx="20" ry="20" fill="#881818" />
+                <svg:rect x="15" y="15" width="435" height="170" rx="10" ry="10" fill="#DDD6B0" />
+            </svg:g>
+            <svg:g>
+                <svg:path d="M39.5,97h30v-30h36v30h30v36h-30v30h-36v-30h-30z" fill="#881818" />
+                <svg:path d="M42.5,100h30v-30h30v30h30v30h-30v30h-30v-30h-30z" fill="#1A1A1A" />
+                <svg:circle cx="87.5" cy="115" r="12" fill="none" stroke="black" stroke-width="1" />
+                <svg:use x="87.5" y="85" xlink:href="#arrow"/>
+                <svg:use x="117.5" y="115" xlink:href="#arrow" transform="rotate(90,117.5,115)"/>
+                <svg:use x="87.5" y="145" xlink:href="#arrow" transform="rotate(180,87.5,145)"/>
+                <svg:use x="57.5" y="115" xlink:href="#arrow" transform="rotate(270,57.5,115)"/>
+            </svg:g>
+            <svg:g>
+                <svg:rect x="160" y="120" width="125" height="40" rx="10" ry="10" fill="#881818" />
+                <svg:rect x="165" y="125" width="115" height="30" rx="6" ry="6" stroke="#540F0F" stroke-width="1" fill="none" />
+                <svg:rect x="175" y="133.75" width="40" height="12.5" rx="5" ry="5" fill="#1A1A1A" />
+                <svg:rect x="230" y="133.75" width="40" height="12.5" rx="5" ry="5" fill="#1A1A1A" />
+
+                <svg:text x="195" y="110" alignment-baseline="central" font-size="8" fill="black">SELECT</svg:text>
+                <svg:text x="250" y="110" alignment-baseline="central" font-size="8" fill="black">START</svg:text>
+            </svg:g>
+            <svg:g>
+                <svg:circle cx="330" cy="140" r="25" fill="#881818" />
+                <svg:circle cx="330" cy="140" r="20" fill="#1A1A1A" />
+
+                <svg:circle cx="390" cy="140" r="25" fill="#881818" />
+                <svg:circle cx="390" cy="140" r="20" fill="#1A1A1A" />
+
+                <svg:rect x="305" y="40" width="110" height="50" rx="25" ry="25" fill="#881818" />
+                <svg:circle cx="330" cy="65" r="20" fill="#FE0016" />
+                <svg:circle cx="390" cy="65" r="20" fill="#FE0016" />
+
+                <svg:rect x="317.5" y="95" width="25" height="15" rx="5" ry="5" fill="#1A1A1A" />
+                <svg:text x="330" y="101.5" alignment-baseline="central" font-size="12.5" fill="#DDDDDD">B</svg:text>
+
+                <svg:rect x="377.5" y="95" width="25" height="15" rx="5" ry="5" fill="#1A1A1A" />
+                <svg:text x="390" y="101.5" alignment-baseline="central" font-size="12.5" fill="#DDDDDD">A</svg:text>
+            </svg:g>
+        </svg:g>
+        <svg:g>
+            <svg:path fill="#000000" fill-rule="evenodd" fill-opacity="0.5"
+            d="M20,0h425a20,20,0,0,1,20,20v160a20,20,0,0,1,-20,20h-425a20,20,0,0,1,-20-20v-160a20,20,0,0,1,20,-20z
+            M87.5,55a30,30,0,0,0,0,60a30,30,0,0,0,0,-60z"
+            *ngIf="state.selectedKey==='u'"/>
+
+            <svg:path fill="#000000" fill-rule="evenodd" fill-opacity="0.5"
+            d="M20,0h425a20,20,0,0,1,20,20v160a20,20,0,0,1,-20,20h-425a20,20,0,0,1,-20-20v-160a20,20,0,0,1,20,-20z
+            M117.5,85a30,30,0,0,0,0,60a30,30,0,0,0,0,-60z"
+            *ngIf="state.selectedKey==='r'"/>
+
+            <svg:path fill="#000000" fill-rule="evenodd" fill-opacity="0.5"
+            d="M20,0h425a20,20,0,0,1,20,20v160a20,20,0,0,1,-20,20h-425a20,20,0,0,1,-20-20v-160a20,20,0,0,1,20,-20z
+            M87.5,115a30,30,0,0,0,0,60a30,30,0,0,0,0,-60z"
+            *ngIf="state.selectedKey==='d'"/>
+
+            <svg:path fill="#000000" fill-rule="evenodd" fill-opacity="0.5"
+            d="M20,0h425a20,20,0,0,1,20,20v160a20,20,0,0,1,-20,20h-425a20,20,0,0,1,-20-20v-160a20,20,0,0,1,20,-20z
+            M57.5,85a30,30,0,0,0,0,60a30,30,0,0,0,0,-60z"
+            *ngIf="state.selectedKey==='l'"/>
+
+            <svg:path fill="#000000" fill-rule="evenodd" fill-opacity="0.5"
+            d="M20,0h425a20,20,0,0,1,20,20v160a20,20,0,0,1,-20,20h-425a20,20,0,0,1,-20-20v-160a20,20,0,0,1,20,-20z
+            M195.5,110a30,30,0,0,0,0,60a30,30,0,0,0,0,-60z"
+            *ngIf="state.selectedKey==='select'"/>
+
+            <svg:path fill="#000000" fill-rule="evenodd" fill-opacity="0.5"
+            d="M20,0h425a20,20,0,0,1,20,20v160a20,20,0,0,1,-20,20h-425a20,20,0,0,1,-20-20v-160a20,20,0,0,1,20,-20z
+            M250,110a30,30,0,0,0,0,60a30,30,0,0,0,0,-60z"
+            *ngIf="state.selectedKey==='start'"/>
+
+            <svg:path fill="#000000" fill-rule="evenodd" fill-opacity="0.5"
+            d="M20,0h425a20,20,0,0,1,20,20v160a20,20,0,0,1,-20,20h-425a20,20,0,0,1,-20-20v-160a20,20,0,0,1,20,-20z
+            M330,110a30,30,0,0,0,0,60a30,30,0,0,0,0,-60z"
+            *ngIf="state.selectedKey==='b'"/>
+
+            <svg:path fill="#000000" fill-rule="evenodd" fill-opacity="0.5"
+            d="M20,0h425a20,20,0,0,1,20,20v160a20,20,0,0,1,-20,20h-425a20,20,0,0,1,-20-20v-160a20,20,0,0,1,20,-20z
+            M390,110a30,30,0,0,0,0,60a30,30,0,0,0,0,-60z"
+            *ngIf="state.selectedKey==='a'"/>
+
+            <svg:path fill="#000000" fill-rule="evenodd" fill-opacity="0.5"
+            d="M20,0h425a20,20,0,0,1,20,20v160a20,20,0,0,1,-20,20h-425a20,20,0,0,1,-20-20v-160a20,20,0,0,1,20,-20z
+            M330,35a30,30,0,0,0,0,60a30,30,0,0,0,0,-60z"
+            *ngIf="state.selectedKey==='B'"/>
+
+            <svg:path fill="#000000" fill-rule="evenodd" fill-opacity="0.5"
+            d="M20,0h425a20,20,0,0,1,20,20v160a20,20,0,0,1,-20,20h-425a20,20,0,0,1,-20-20v-160a20,20,0,0,1,20,-20z
+            M390,35a30,30,0,0,0,0,60a30,30,0,0,0,0,-60z"
+            *ngIf="state.selectedKey==='A'"/>
+        </svg:g>
+        <svg:g class="button">
+            <svg:circle cx="87.5" cy="85" r="30" fill="black" fill-opacity="0" stroke-width="3"
+            [ngClass]="{ 'selected': state.selectedKey==='u' }"
+            (click)="state.selectedKey='u'"
+            (clickOutside)="clickOutside('u', $event)"/>
+
+            <svg:circle cx="117.5" cy="115" r="30" fill="black" fill-opacity="0" stroke-width="3"
+            [ngClass]="{ 'selected': state.selectedKey==='r' }"
+            (click)="state.selectedKey='r'"
+            (clickOutside)="clickOutside('r', $event)"/>
+
+            <svg:circle cx="87.5" cy="145" r="30" fill="black" fill-opacity="0" stroke-width="3"
+            [ngClass]="{ 'selected': state.selectedKey==='d' }"
+            (click)="state.selectedKey='d'"
+            (clickOutside)="clickOutside('d', $event)"/>
+
+            <svg:circle cx="57.5" cy="115" r="30" fill="black" fill-opacity="0" stroke-width="3"
+            [ngClass]="{ 'selected': state.selectedKey==='l' }"
+            (click)="state.selectedKey='l'"
+            (clickOutside)="clickOutside('l', $event)"/>
+
+            <svg:circle cx="195.5" cy="140" r="30" fill="black" fill-opacity="0" stroke-width="3"
+            [ngClass]="{ 'selected': state.selectedKey==='select' }"
+            (click)="state.selectedKey='select'"
+            (clickOutside)="clickOutside('select', $event)"/>
+
+            <svg:circle cx="250" cy="140" r="30" fill="black" fill-opacity="0" stroke-width="3"
+            [ngClass]="{ 'selected': state.selectedKey==='start' }"
+            (click)="state.selectedKey='start'"
+            (clickOutside)="clickOutside('start', $event)"/>
+
+            <svg:circle cx="330" cy="140" r="30" fill="black" fill-opacity="0" stroke-width="3"
+            [ngClass]="{ 'selected': state.selectedKey==='b' }"
+            (click)="state.selectedKey='b'"
+            (clickOutside)="clickOutside('b', $event)"/>
+
+            <svg:circle cx="390" cy="140" r="30" fill="black" fill-opacity="0" stroke-width="3"
+            [ngClass]="{ 'selected': state.selectedKey==='a' }"
+            (click)="state.selectedKey='a'"
+            (clickOutside)="clickOutside('a', $event)"/>
+
+            <svg:circle cx="330" cy="65" r="30" fill="black" fill-opacity="0" stroke-width="3"
+            [ngClass]="{ 'selected': state.selectedKey==='B' }"
+            (click)="state.selectedKey='B'"
+            (clickOutside)="clickOutside('B', $event)"/>
+
+            <svg:circle cx="390" cy="65" r="30" fill="black" fill-opacity="0" stroke-width="3"
+            [ngClass]="{ 'selected': state.selectedKey==='A' }"
+            (click)="state.selectedKey='A'"
+            (clickOutside)="clickOutside('A', $event)"/>
+
+        </svg:g>
+    </svg:g>
+</svg:svg>

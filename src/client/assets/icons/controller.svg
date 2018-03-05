@@ -1,0 +1,7 @@
+<svg width="100" height="100"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g fill="dimgray">
+        <use xlink:href="symbol/keyboard.svg#keyboard" x="20" y="0" width="60" height="60" />
+        <use xlink:href="symbol/arrow-down.svg#arrow-down" x="40" y="45" width="20" height="20" />
+        <use xlink:href="symbol/gamepad.svg#gamepad" x="2" y="50" width="50" height="50" />
+    </g>
+</svg>

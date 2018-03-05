@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row game-title text-center">
+        {{ 'Language' | translate }}
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-xs-12 text-sm-right text-xs-center">
+            <a (click)="click('en')" [ngClass]="{ 'selected': lang=='en'}">
+                <div class="metro text-center">
+                    <div class="icon">
+                        <i class="icon icon-lang-en"></i>
+                    </div>
+                    <div class="description">
+                        English
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-xs-12 text-sm-left text-xs-center">
+            <a (click)="click('vi')" [ngClass]="{ 'selected': lang=='vi' }">
+                <div class="metro text-center">
+                    <div class="icon">
+                        <i class="icon icon-lang-vi"></i>
+                    </div>
+                    <div class="description">
+                        Tiếng Việt
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <overlay-button position="top-left" icon="back" routerLink="/settings"></overlay-button>
+    </div>
+</div>

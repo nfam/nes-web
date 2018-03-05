@@ -1,0 +1,10 @@
+<div class="overlay-{{position}} overlay-button">
+    <a [routerLink]="routerLink" class="btn btn-default btn-lg" *ngIf="routerLink">
+        <i *ngIf="icon" class="icon icon-{{icon}}"></i>
+        <ng-content></ng-content>
+    </a>
+    <a class="btn btn-default btn-lg" *ngIf="!routerLink">
+        <i *ngIf="icon" class="icon icon-{{icon}}"></i>
+        <ng-content></ng-content>
+    </a>
+</div>

@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row game-title text-center">
+        {{ 'Keyboard to Joystick' | translate }}
+    </div>
+    <div class="col-xs-12 text-center" style="color: dimgray; padding-top: 10px; padding-bottom: 10px; font-size: 15px">
+        {{ 'Click on any joystick button, or' | translate }}
+        <br/>{{ 'press TAB key, then' | translate }}
+        <br/>{{ 'press your intended key on the keyboard' | translate }}
+        <br/> {{ 'in order to modify the mapping.' | translate }}
+    </div>
+    <div class="row" style="padding-top: 10px; padding-bottom: 10px">
+        <div class="col-xs-12 text-center">
+            <keyboard [state]="state"></keyboard>
+        </div>
+        <div class="col-xs-12 text-center">
+            <joystick [state]="state"></joystick>
+        </div>
+    </div>
+    <div class="col-xs-12 text-center" style="padding-top: 20px; padding-bottom: 20px; font-size: 20px" *ngIf="keyboardMapModified" >
+          <button class="btn btn-primary" (click)="resetKeyboardMap()">{{ 'Reset to Default' | translate }}</button>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <overlay-button position="top-left" icon="back" routerLink="/settings"></overlay-button>
+    </div>
+</div>

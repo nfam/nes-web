@@ -1,0 +1,8 @@
+{
+    "mysql": {
+        "host": "mysql.service.home",
+        "user": "truyencv",
+        "password" : "truyencv",
+        "database" : "truyencv_test"
+    }
+}

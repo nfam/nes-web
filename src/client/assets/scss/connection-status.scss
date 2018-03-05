@@ -1,0 +1,16 @@
+connection-status {
+    font-size: 18px;
+    color: dimgray;
+
+    .label-status {
+        font-size: 30px;
+        color: black;
+        background-color: dimgray;
+        border-radius: 3px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .section {
+        margin-top: 30px;
+    }
+}

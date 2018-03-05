@@ -1,0 +1,66 @@
+<div class="container">
+    <!-- Loading -->
+    <div class="container" *ngIf="name && !game && !message">
+        <div class="row">
+            <loading></loading>
+        </div>
+    </div>
+
+    <!-- Error Message -->
+    <div class="container" *ngIf="message">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="alert alert-danger text-center">
+                    {{ message }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <playingmode-input (select)="selectPlayingMode($event)" [game]="game" *ngIf="showingPlayingModeInput"></playingmode-input>
+    <roomoption-input (select)="selectRoomOption($event)" [game]="game" *ngIf="showingRoomOptionInput"></roomoption-input>
+    <username-input (select)="selectUsername($event)" *ngIf="showingUsernameInput"></username-input>
+    <passcode-input (select)="selectPasscode($event)" [game]="game" [passcode]="passcode" [passcodeInvalid]="roomStatus == RoomStatus.passcodeInvalid"
+        *ngIf="showingPasscodeInput"></passcode-input>
+    <connection-status (abandon)="selectAbandon($event)" [game]="game" *ngIf="showingConnectionStatus"></connection-status>
+    <controller *ngIf="showingController"></controller>
+
+    <div class="container" *ngIf="showingMasterScreen">
+        <div class="row">
+            <screen [name]="name" mode="master"></screen>
+        </div>
+    </div>
+    <div class="container" *ngIf="showingMirrorScreen">
+        <div class="row">
+            <screen [name]="name" mode="mirror"></screen>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="container">
+        <overlay-button position="top-left" icon="back" (click)="back()"></overlay-button>
+    </div>
+    <div class="container" *ngIf="playerI">
+        <overlay-player [asmaster]="true" [username]="playerI"></overlay-player>
+    </div>
+    <div class="container" *ngIf="playerII">
+        <overlay-player [asmaster]="false" [username]="playerII"></overlay-player>
+    </div>
+</div>
+<div *ngIf="showingExitQuery" class="dialog modal fade in" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <p>{{ 'Are you sure to abandon the game?' | translate }}</p>
+                <div class="section row">
+                    <div class="col-xs-6 text-right">
+                        <a class="metro-button" [ngClass]="{ 'selected': option == Option.yes }" (click)="back()">{{ 'Yes' | translate }}</a>
+                    </div>
+                    <div class="col-xs-6 text-left">
+                        <a class="metro-button" [ngClass]="{ 'selected': option == Option.no }" (click)="exiting=false">{{ 'No' | translate }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

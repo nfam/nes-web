@@ -1,0 +1,71 @@
+@import "@mixins/prefix.scss";
+@import "@variables/box.scss";
+
+.metro {
+    box-sizing: border-box;
+    display: inline-block;
+    border: $box-border-width $box-border-style $box-border-color;
+    border-radius: $box-border-radius;
+    color: $box-content-color;
+    position: relative;
+    cursor: pointer;
+
+    width: 256px;
+    height: 256px;
+    margin: 10px;
+    font-size: 20px;
+
+    div.icon {
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        i.icon {
+            width: 180px;
+            height: 180px;
+        }
+    }
+    .description {
+        padding-top: 5px;
+        font-size: 18px;
+        color: inherit;
+    }
+    &:hover {
+        border-color: $box-border-color-hover;
+    }
+    &:active {
+        border-color: $box-border-color-active;
+        background-color: $box-background-color-active;
+        cursor: pointer;
+    }
+    .selected & {
+        color: $box-content-color-selected;
+        @include animation('box-blink-background 2s infinite');
+    }
+}
+
+.metro-button {
+    border: $box-border-width $box-border-style $box-border-color;
+    border-radius: $box-border-radius;
+    color: $box-content-color;
+    background-color: transparent;
+    font-size: 25px;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+
+    &:hover {
+        border-color: $box-border-color-hover;
+        color: $box-content-color;
+        text-decoration: none;
+    }
+    &:active {
+        border-color: $box-border-color-active;
+        background-color: $box-background-color-active;
+        cursor: pointer;
+    }
+    &.selected,
+    .selected & {
+        color: $box-content-color-selected;
+        background-color: $box-background-color-selected;
+        @include animation('box-blink 2s infinite');
+    }
+}

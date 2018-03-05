@@ -1,0 +1,29 @@
+<game-title [game]="game"></game-title>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-xs-12 text-sm-right text-xs-center">
+            <a (click)="click(PlayingMode.singleplayer)" [ngClass]="{ 'selected': mode==PlayingMode.singleplayer }">
+                <div class="metro text-center">
+                    <div class="icon">
+                        <i class="icon icon-gamepad"></i>
+                    </div>
+                    <div class="description">
+                        {{ 'Singleplayer' | translate }}
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-xs-12 text-sm-left text-xs-center">
+            <a (click)="click(PlayingMode.multiplayer)" [ngClass]="{ 'selected': mode==PlayingMode.multiplayer }">
+                <div class="metro text-center">
+                    <div class="icon">
+                        <i class="icon icon-multiplayer"></i>
+                    </div>
+                    <div class="description">
+                        {{ 'Multiplayer' | translate }}
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
