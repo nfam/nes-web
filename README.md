@@ -15,6 +15,12 @@ Multiplayer Online Classic NES Games on Web Browser, using [`WebRTC`](https://we
 
 ## How to use this image
 
+### Build Docker image
+
+```shell
+sudo docker build -f docker/amd64.Dockerfile -t nfam/nes-web .
+```
+
 ### Run on host networking
 
 This example uses host networking for simplicity. Also note the `-v` argument. This directory will be used to store `NES` roms and screen images.
